@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "267602914732",
+    "firebase_url": "https://azurlanerefandcollection-default-rtdb.firebaseio.com",
+    "project_id": "azurlanerefandcollection",
+    "storage_bucket": "azurlanerefandcollection.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267602914732:android:a801106ff32e78592a1e09",
+        "android_client_info": {
+          "package_name": "com.sylphid.azurlanecollection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267602914732-gjhjse9003qfv0l97ci7qm087416688d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQo1S9W9rrCxqfH30qvfDTZs5PheXTkFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267602914732-gjhjse9003qfv0l97ci7qm087416688d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

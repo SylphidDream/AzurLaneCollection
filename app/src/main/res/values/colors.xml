@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azur_lane_main">#5B4DFF</color>
+    <color name="azur_lane_background">#64CEFF</color>
+    <color name="azur_lane_super_rare">#F5F9A9</color>
+    <color name="azur_lane_elite">#C98DFF</color>
+    <color name="azur_lane_rare">#64CEFF</color>
+    <color name="azur_lane_common">#D3CBDA</color>
+    <color name="crimson_axis_main">#9F1717</color>
+    <color name="crimson_axis_background">#320707</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparent_black">#A0000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#01000000</color>
+</resources>

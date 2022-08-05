@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_starting_page"
+    >
+    <fragment
+        android:id="@+id/nav_starting_page"
+        android:name="com.sylphid.azurlanecollection.view.fragments.StartingPageFragment"
+        >
+        <action
+            android:id="@+id/action_starting_page_to_ship_list_page"
+            app:destination="@id/nav_ship_list_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_ship_list_page"
+        android:name="com.sylphid.azurlanecollection.view.fragments.ShipsListFragment"
+        >
+        <action
+            android:id="@+id/action_ship_list_page_to_starting_page"
+            app:destination="@id/nav_starting_page" />
+        <action
+            android:id="@+id/action_ship_list_page_to_ship_details_page"
+            app:destination="@id/nav_ship_details_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_ship_details_page"
+        android:name="com.sylphid.azurlanecollection.view.fragments.ShipDetailsFragment"
+        >
+        <action
+            android:id="@+id/action_ship_details_page_to_starting_page"
+            app:destination="@id/nav_starting_page" />
+        <action
+            android:id="@+id/action_ship_details_page_to_ship_list_page"
+            app:destination="@id/nav_ship_list_page" />
+    </fragment>
+
+
+</navigation>
