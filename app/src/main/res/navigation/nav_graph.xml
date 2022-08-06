@@ -10,7 +10,8 @@
         >
         <action
             android:id="@+id/action_starting_page_to_ship_list_page"
-            app:destination="@id/nav_ship_list_page" />
+            app:destination="@id/nav_ship_list_page"
+            />
     </fragment>
     <fragment
         android:id="@+id/nav_ship_list_page"
@@ -18,10 +19,14 @@
         >
         <action
             android:id="@+id/action_ship_list_page_to_starting_page"
-            app:destination="@id/nav_starting_page" />
+            app:destination="@id/nav_starting_page"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_starting_page"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_ship_list_page_to_ship_details_page"
-            app:destination="@id/nav_ship_details_page" />
+            app:destination="@id/nav_ship_details_page"
+            />
     </fragment>
     <fragment
         android:id="@+id/nav_ship_details_page"
@@ -29,7 +34,10 @@
         >
         <action
             android:id="@+id/action_ship_details_page_to_starting_page"
-            app:destination="@id/nav_starting_page" />
+            app:destination="@id/nav_starting_page"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_starting_page"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_ship_details_page_to_ship_list_page"
             app:destination="@id/nav_ship_list_page" />
