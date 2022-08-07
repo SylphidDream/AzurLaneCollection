@@ -2,6 +2,9 @@
 <resources>
     <color name="azur_lane_main">#5B4DFF</color>
     <color name="azur_lane_background">#64CEFF</color>
+    <color name="azur_lane_decisive">#FF99DF</color>
+    <color name="azur_lane_priority">#F5F9A9</color>
+    <color name="azur_lane_ultra_rare">#FF99DF</color>
     <color name="azur_lane_super_rare">#F5F9A9</color>
     <color name="azur_lane_elite">#C98DFF</color>
     <color name="azur_lane_rare">#64CEFF</color>
