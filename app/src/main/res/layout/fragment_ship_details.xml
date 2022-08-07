@@ -113,18 +113,28 @@
             android:layout_height="match_parent"
             >
             <Button
-                android:id="@+id/btn_100"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_base"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="Base"
                 android:backgroundTint="@color/azur_lane_elite"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
             <Button
+                android:id="@+id/btn_100"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:backgroundTint="@color/azur_lane_elite"
+                app:layout_constraintStart_toEndOf="@id/btn_base"
+                app:layout_constraintTop_toTopOf="@id/btn_base"
+                app:layout_constraintBottom_toBottomOf="@id/btn_base"
+                />
+            <Button
                 android:id="@+id/btn_120"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="120"
                 android:backgroundTint="@color/azur_lane_elite"
@@ -134,7 +144,7 @@
                 />
             <Button
                 android:id="@+id/btn_125"
-                android:layout_width="wrap_content"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="125"
                 android:backgroundTint="@color/azur_lane_elite"

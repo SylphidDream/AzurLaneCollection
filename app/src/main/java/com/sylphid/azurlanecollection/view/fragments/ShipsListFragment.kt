@@ -89,6 +89,7 @@ class ShipsListFragment: ViewModelFragment() {
     }
 
     fun openDetails(ship: ShipEntity){
+        viewModel.setLoadingForDetails()
         findNavController().navigate(
             ShipsListFragmentDirections.actionShipListPageToShipDetailsPage(
                 ship

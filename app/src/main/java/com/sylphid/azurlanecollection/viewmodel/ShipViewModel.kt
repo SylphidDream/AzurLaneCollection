@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sylphid.azurlanecollection.api.ShipEntity
 import com.sylphid.azurlanecollection.api.ShipsRepository
 import com.sylphid.azurlanecollection.model.UIState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -51,5 +52,9 @@ class ShipViewModel(
     fun setLoadingForDetails(){
         _shipId.value = UIState.Loading
         Log.d(TAG, "setLoadingForDetails: ")
+    }
+
+    fun setSuccessForDetails(ship: ShipEntity){
+        _shipId.value = UIState.Success(listOf(ship))
     }
 }
