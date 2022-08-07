@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    android:id="@+id/cv_cardView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="90dp"
     android:layout_height="120dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="20dp"
     android:layout_margin="8dp"
-    android:backgroundTint="@color/azur_lane_elite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/azur_lane_elite"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >

@@ -18,6 +18,7 @@ class StartingPageFragment: ViewModelFragment() {
         binding = FragmentStartingPageBinding.inflate(layoutInflater)
 
         binding.btnShips.setOnClickListener {
+            viewModel.setLoading()
             findNavController().navigate(
                 StartingPageFragmentDirections.actionStartingPageToShipListPage()
             )
