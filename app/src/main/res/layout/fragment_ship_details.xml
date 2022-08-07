@@ -37,10 +37,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-    <ImageView
+    <ImageButton
+        android:id="@+id/ib_back_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:src="@drawable/back_arrow_white"
+        android:backgroundTint="@color/transparent"
         app:layout_constraintTop_toTopOf="@id/tb_name_holder"
         app:layout_constraintBottom_toBottomOf="@id/tb_name_holder"
         app:layout_constraintStart_toStartOf="@id/tb_name_holder"
@@ -97,23 +99,67 @@
         android:background="@color/transparent_black"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_tab_layout"
+    <Toolbar
+        android:id="@+id/tb_stats_buttons"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/transparent_black"
-        app:tabIconTint="@color/black"
-        app:tabIndicatorColor="@color/white"
-        app:tabSelectedTextColor="@color/azur_lane_elite"
-        app:tabTextColor="@color/black"
         app:layout_constraintTop_toTopOf="@id/tb_stat_holder"
         app:layout_constraintStart_toStartOf="@id/tb_stat_holder"
         app:layout_constraintEnd_toEndOf="@id/tb_stat_holder"
-        />
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <Button
+                android:id="@+id/btn_100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:backgroundTint="@color/azur_lane_elite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+            <Button
+                android:id="@+id/btn_120"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120"
+                android:backgroundTint="@color/azur_lane_elite"
+                app:layout_constraintStart_toEndOf="@id/btn_100"
+                app:layout_constraintTop_toTopOf="@id/btn_100"
+                app:layout_constraintBottom_toBottomOf="@id/btn_100"
+                />
+            <Button
+                android:id="@+id/btn_125"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="125"
+                android:backgroundTint="@color/azur_lane_elite"
+                app:layout_constraintStart_toEndOf="@id/btn_120"
+                app:layout_constraintTop_toTopOf="@id/btn_120"
+                app:layout_constraintBottom_toBottomOf="@id/btn_120"
+                />
+            <CheckBox
+                android:id="@+id/cb_retrofit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "Retrofit"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+
+                app:layout_constraintStart_toEndOf="@id/btn_125"
+                app:layout_constraintTop_toTopOf="@id/btn_125"
+                app:layout_constraintBottom_toBottomOf="@id/btn_125"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </Toolbar>
     <TableLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tl_tab_layout"
+        app:layout_constraintTop_toBottomOf="@id/tb_stats_buttons"
         app:layout_constraintBottom_toBottomOf="@id/tb_stat_holder"
         app:layout_constraintStart_toStartOf="@id/tb_stat_holder"
         app:layout_constraintEnd_toEndOf="@id/tb_stat_holder"
@@ -245,19 +291,6 @@
                 />
         </TableRow>
     </TableLayout>
-
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        android:id="@+id/vp_view_pager"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/tl_tab_layout"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/tb_stat_holder"-->
-<!--        app:layout_constraintStart_toStartOf="@id/tb_stat_holder"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/tb_stat_holder"-->
-<!--        />-->
 
 <!--    Skin scroller-->
     <androidx.recyclerview.widget.RecyclerView

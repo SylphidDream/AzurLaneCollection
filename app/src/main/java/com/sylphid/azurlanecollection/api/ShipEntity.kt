@@ -1,5 +1,9 @@
 package com.sylphid.azurlanecollection.api
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ShipEntity(
     val id: String? = "",
     val wikiUrl: String? = null,
@@ -31,8 +35,9 @@ data class ShipEntity(
     val misc: Miscellaneous?= null,
     val skins: List<Skin>?= null,
     val gallery: List<ShipGallery>?= null
-)
+): Parcelable
 
+@Parcelize
 data class Name(
     val en: String?= null,
     val code: String?= null,
@@ -40,15 +45,17 @@ data class Name(
     val jp: String?= null,
     val kr: String?= null,
     val tw: String?= null
-)
+): Parcelable
 
+@Parcelize
 data class Exists(
     val en: Boolean?= null,
     val cn: Boolean?= null,
     val jp: Boolean?= null,
     val kr: Boolean?= null
-)
+): Parcelable
 
+@Parcelize
 data class Stats(
     val baseStats: StatDetails?= null,
     val level100: StatDetails?= null,
@@ -57,9 +64,9 @@ data class Stats(
     val level120Retrofit: StatDetails?= null,
     val level125: StatDetails?= null,
     val level125Retrofit: StatDetails?= null
+): Parcelable
 
-)
-
+@Parcelize
 data class StatDetails(
     val health: String?= null,
     val armor: String?= null,
@@ -77,65 +84,76 @@ data class StatDetails(
     val oxygen: String?= null,
     val ammunition: String?= null,
     val huntingRange: String?= null
-)
+): Parcelable
 
+@Parcelize
 data class Slot(
     val maxEfficiency: Int?= null,
     val minEfficiency: Int?= null,
     val type: String?= null,
     val max: Int?= null,
     val kaiEfficiency: Int?= null
-)
+): Parcelable
 
+@Parcelize
 data class EnhanceValue(
     val firepower: Int?= null,
     val torpedo: Int?= null,
     val aviation: Int?= null,
     val reload: Int?= null
-)
+): Parcelable
 
+@Parcelize
 data class ScrapValue(
     val coin: Int?= null,
     val oil: Int?= null,
     val medal: Int?= null
-)
+): Parcelable
 
+@Parcelize
 data class Skill(
     val icon: String?= null,
     val names: Name?= null,
     val description: String?= null,
     val color: String?= null
-)
+): Parcelable
+
+@Parcelize
 data class FleetTech(
     val statsBonus: StatsBonus?= null,
     val techPoints: TechPoints?= null
-)
+): Parcelable
 
+@Parcelize
 data class StatsBonus(
     val collection: StatsBonusCollection?= null,
     val maxLevel: MaxLevel?= null
-)
+): Parcelable
 
 //Likely change here
+@Parcelize
 data class StatsBonusCollection(
     val applicable: List<String>?= null,
     val bonus: String?= null,
     val stat: String?= null
-)
+): Parcelable
 
+@Parcelize
 data class MaxLevel(
     val applicable: List<String>?= null,
     val bonus: String?= null,
     val stat: String?= null
-)
+): Parcelable
 
+@Parcelize
 data class TechPoints(
     val collection: Int?= null,
     val maxLimitBreak: Int?= null,
     val maxLevel: Int?= null,
     val total: Int?= null
-)
+): Parcelable
 
+@Parcelize
 data class RetrofitProjects(
     val A: RetrofitProject?= null,
     val B: RetrofitProject?= null,
@@ -149,8 +167,9 @@ data class RetrofitProjects(
     val J: RetrofitProject?= null,
     val K: RetrofitProject?= null,
     val L: RetrofitProject?= null
-)
+): Parcelable
 
+@Parcelize
 data class RetrofitProject(
     val id: String?= null,
     val attributes: List<String>?= null,
@@ -161,55 +180,64 @@ data class RetrofitProject(
     val levelBreakStars: String?= null,
     val recurrence: Int?= null,
     val require: List<String>?= null
-)
+): Parcelable
 
+@Parcelize
 data class Construction(
     val constructionTime: String?= null,
     val availableIn: ConstructionMethods?= null
-)
+): Parcelable
 
+@Parcelize
 data class ConstructionMethods(
     val light: Boolean?= null,
     val heavy: Boolean?= null,
     val aviation: Boolean?= null,
     val limited: Boolean?= null,
     val exchange: Boolean?= null
-)
+): Parcelable
 
+@Parcelize
 data class ObtainMethods(
     val fromMaps: List<String>?= null
-)
+): Parcelable
 
+@Parcelize
 data class Miscellaneous(
     val artist: Artist?= null,
     val voice: ShipVoice?= null
-)
+): Parcelable
 
+@Parcelize
 data class Artist(
     val name: String?= null,
     val urls: SocialMediaLinks?= null
-)
+): Parcelable
 
+@Parcelize
 data class SocialMediaLinks(
     val wiki: String?= null,
     val Pixiv: String?= null,
     val Twitter: String?= null,
     val Link: String?= null
-)
+):Parcelable
 
+@Parcelize
 data class ShipVoice(
     val name: String?= null,
     val url: String?= null
-)
+): Parcelable
 
+@Parcelize
 data class Skin(
     val name: String?= null,
     val image: String?= null,
     val background: String?= null,
     val chibi: String?= null,
     val info: SkinInfo?= null
-)
+): Parcelable
 
+@Parcelize
 data class SkinInfo(
     val live2dModel: Boolean?= null,
     val obtainedFrom: String?= null,
@@ -221,9 +249,10 @@ data class SkinInfo(
     val jpClient: String?= null,
     val jpLimited: String?= null,
     val cost: Int?= null
-)
+): Parcelable
 
+@Parcelize
 data class ShipGallery(
     val description: String?= null,
     val url: String?= null
-)
+): Parcelable

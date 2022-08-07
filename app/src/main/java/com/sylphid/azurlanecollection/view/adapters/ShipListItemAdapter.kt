@@ -1,6 +1,5 @@
 package com.sylphid.azurlanecollection.view.adapters
 
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,7 +13,8 @@ import com.sylphid.azurlanecollection.databinding.ShipListItemBinding
 private val TAG = "ShipListItemAdapter"
 
 class ShipListItemAdapter(
-    private val list: MutableList<ShipEntity?> = mutableListOf(LAFFEY)
+    private val list: MutableList<ShipEntity?> = mutableListOf(LAFFEY),
+    private val openDetails: (ShipEntity) -> Unit
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setShipList(shipList: List<ShipEntity>){
@@ -35,13 +35,15 @@ class ShipListItemAdapter(
                         .into(ivThumbnail)
                     when(ship.rarity){
                         "Normal" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_common))
-                        "Rare"->cvCardView.setCardBackgroundColor(binding.root.context.getColor(R.color.azur_lane_rare))
+                        "Rare"->cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_rare))
                         "Elite" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_elite))
                         "Super Rare" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_super_rare))
                         "Ultra Rare" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_ultra_rare))
                         "Priority" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_priority))
                         "Decisive" -> cvCardView.setCardBackgroundColor(root.context.getColor(R.color.azur_lane_decisive))
-
+                    }
+                    root.setOnClickListener{
+                        openDetails(ship)
                     }
                 }?:{
                     Log.e(TAG, "onBind: ${ship.id}", )
