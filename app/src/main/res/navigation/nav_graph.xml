@@ -41,6 +41,11 @@
         <action
             android:id="@+id/action_ship_details_page_to_ship_list_page"
             app:destination="@id/nav_ship_list_page" />
+
+        <argument
+            android:name="ship_list_item"
+            app:argType="com.sylphid.azurlanecollection.api.ShipEntity"
+            />
     </fragment>
 
 

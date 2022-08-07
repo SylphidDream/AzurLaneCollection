@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
+import com.sylphid.azurlanecollection.api.ShipEntity
 import com.sylphid.azurlanecollection.databinding.FragmentShipsListBinding
 import com.sylphid.azurlanecollection.model.UIState
 import com.sylphid.azurlanecollection.view.adapters.ShipListItemAdapter
@@ -19,7 +20,7 @@ class ShipsListFragment: ViewModelFragment() {
     private lateinit var binding: FragmentShipsListBinding
 
     private val shipListItemAdapter by lazy {
-        ShipListItemAdapter()
+        ShipListItemAdapter(openDetails = ::openDetails)
     }
 
     override fun onCreateView(
@@ -85,5 +86,13 @@ class ShipsListFragment: ViewModelFragment() {
                 }
             }
         }
+    }
+
+    fun openDetails(ship: ShipEntity){
+        findNavController().navigate(
+            ShipsListFragmentDirections.actionShipListPageToShipDetailsPage(
+                ship
+            )
+        )
     }
 }

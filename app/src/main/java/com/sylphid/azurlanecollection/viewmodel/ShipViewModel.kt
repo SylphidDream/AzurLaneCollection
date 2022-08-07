@@ -22,6 +22,9 @@ class ShipViewModel(
     private val _shipListData = MutableLiveData<UIState>()
     val shipListData: LiveData<UIState> get()=_shipListData
 
+    private val _shipId = MutableLiveData<UIState>()
+    val shipId: LiveData<UIState> get() = _shipId
+
     private val coroutineExceptionHandler by lazy {
         CoroutineExceptionHandler { coroutineContext, throwable ->
             Log.e(TAG, "Context: $coroutineContext\nMessage: ${throwable.localizedMessage}",throwable)
@@ -43,5 +46,10 @@ class ShipViewModel(
     fun setLoading(){
         _shipListData.value = UIState.Loading
         Log.d(TAG, "setLoading: ")
+    }
+
+    fun setLoadingForDetails(){
+        _shipId.value = UIState.Loading
+        Log.d(TAG, "setLoadingForDetails: ")
     }
 }
