@@ -19,28 +19,39 @@ private val TAG = "ShipRepositoryImpl"
 private val databaseRef = DI.provideDatabase().reference
 
 private var ships = mutableListOf<ShipEntity>()
+private var finishedRun = false
 
 class ShipsRepositoryImpl : ShipsRepository {
     override suspend fun getAllShips(): Flow<UIState> =
         flow {
             ships.clear()
+            finishedRun = false
             try {
-                databaseRef.child("ships").get()
-                    .addOnSuccessListener { dataSnapshot: DataSnapshot ->
-                        Log.d(
-                            TAG,
-                            "getAllShips: dataSnapshot:${dataSnapshot.children.toList().size}"
-                        )
-                        for (shipItem in dataSnapshot.children) {
-                            ships.add(makeShip(shipItem))
-                        }
-                        Log.d(TAG, "getAllShips: Ships:${ships.size}")
+                var task = databaseRef.child("ships").get()
+                while (!finishedRun) {
+                    if (task.isComplete) {
+                        finishedRun = true
                     }
-                delay(5000)
-                emit(UIState.Success(ships))
+                }
+                var dataSnapshot = task.getResult()
+
+                Log.d(
+                    TAG,
+                    "getAllShips: dataSnapshot:${dataSnapshot.children.toList().size}"
+                )
+                for (shipItem in dataSnapshot.children) {
+                    ships.add(makeShip(shipItem))
+                }
+                Log.d(TAG, "getAllShips: Ships:${ships.size}")
+
 
             } catch (e: Exception) {
                 emit(UIState.Error(e))
+            } finally {
+                Log.d(TAG, "getAllShips: Reached Finally Block")
+                if (finishedRun) {
+                    emit(UIState.Success(ships))
+                }
             }
         }
 
@@ -68,29 +79,29 @@ class ShipsRepositoryImpl : ShipsRepository {
         var level100 = makeStatDetails(statsRef.child("level100"))
         var level120 = makeStatDetails(statsRef.child("level120"))
         var level125 = makeStatDetails(statsRef.child("level125"))
-        if(input.hasChild("retrofit")){
+        if (input.hasChild("retrofit")) {
             var level100Retrofit = makeStatDetails(statsRef.child("level100Retrofit"))
             var level120Retrofit = makeStatDetails(statsRef.child("level120Retrofit"))
             var level125Retrofit = makeStatDetails(statsRef.child("level125Retrofit"))
             stats = Stats(
-                baseStats=baseStats,
-                level100=level100,
-                level120=level120,
-                level125=level125,
-                level100Retrofit=level100Retrofit,
-                level120Retrofit=level120Retrofit,
-                level125Retrofit=level125Retrofit
+                baseStats = baseStats,
+                level100 = level100,
+                level120 = level120,
+                level125 = level125,
+                level100Retrofit = level100Retrofit,
+                level120Retrofit = level120Retrofit,
+                level125Retrofit = level125Retrofit
             )
         } else {
             stats = Stats(
-                baseStats=baseStats,
-                level100=level100,
-                level120=level120,
-                level125=level125
+                baseStats = baseStats,
+                level100 = level100,
+                level120 = level120,
+                level125 = level125
             )
         }
 
-        for (skill in skillsRef.children){
+        for (skill in skillsRef.children) {
             var names = Name(
                 en = skill.child("names").child("en").getValue(String::class.java)
             )
@@ -118,15 +129,15 @@ class ShipsRepositoryImpl : ShipsRepository {
             //skins
             skins = skinsList.toList(),
             //stats
-            stats= stats,
+            stats = stats,
             //skills
-            skills= skills
+            skills = skills
         )
 //        Log.d(TAG, "makeShip: \nthumbnail=${ship.thumbnail}\nname=${ship.names!!.en}")
         return ship
     }
 
-    fun makeStatDetails(statDetails: DataSnapshot): StatDetails{
+    fun makeStatDetails(statDetails: DataSnapshot): StatDetails {
         return StatDetails(
             health = statDetails.child("health").getValue(String::class.java),
             armor = statDetails.child("armor").getValue(String::class.java),
@@ -140,7 +151,8 @@ class ShipsRepositoryImpl : ShipsRepository {
             aviation = statDetails.child("aviation").getValue(String::class.java),
             oilConsumption = statDetails.child("oilConsumption").getValue(String::class.java),
             accuracy = statDetails.child("accuracy").getValue(String::class.java),
-            antisubmarineWarfare = statDetails.child("antisubmarineWarfare").getValue(String::class.java),
+            antisubmarineWarfare = statDetails.child("antisubmarineWarfare")
+                .getValue(String::class.java),
             oxygen = statDetails.child("oxygen").getValue(String::class.java),
             ammunition = statDetails.child("ammunition").getValue(String::class.java),
         )
