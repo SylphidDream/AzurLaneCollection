@@ -16,6 +16,7 @@ class StartingPageFragment: ViewModelFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentStartingPageBinding.inflate(layoutInflater)
+        binding.btnLogin.visibility = View.GONE
 
         binding.btnShips.setOnClickListener {
             viewModel.setLoading()
