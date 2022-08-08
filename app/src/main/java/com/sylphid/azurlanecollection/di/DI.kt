@@ -17,7 +17,7 @@ object DI {
         return database
     }
 
-    fun provideRepository() = ShipsRepositoryImpl()
+    fun provideRepository() = ShipsRepositoryImpl(provideDatabase())
     fun provideDispatcher() = Dispatchers.IO
 
     fun provideViewModel(storeOwner: ViewModelStoreOwner):ShipViewModel{

@@ -2,13 +2,14 @@ package com.sylphid.azurlanecollection.api
 
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ktx.getValue
-import com.sylphid.azurlanecollection.di.DI
+import com.google.firebase.database.FirebaseDatabase
 import com.sylphid.azurlanecollection.model.UIState
+import dagger.Provides
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
+
 
 interface ShipsRepository {
     suspend fun getAllShips(): Flow<UIState>
@@ -16,18 +17,17 @@ interface ShipsRepository {
 
 
 private val TAG = "ShipRepositoryImpl"
-private val databaseRef = DI.provideDatabase().reference
 
 private var ships = mutableListOf<ShipEntity>()
 private var finishedRun = false
 
-class ShipsRepositoryImpl : ShipsRepository {
+class ShipsRepositoryImpl @Inject constructor(private val database: FirebaseDatabase) : ShipsRepository {
     override suspend fun getAllShips(): Flow<UIState> =
         flow {
             ships.clear()
             finishedRun = false
             try {
-                var task = databaseRef.child("ships").get()
+                var task = database.reference.child("ships").get()
                 while (!finishedRun) {
                     if (task.isComplete) {
                         finishedRun = true
