@@ -37,9 +37,7 @@ class ShipsListFragment: ViewModelFragment() {
 
     fun setupUI(){
         binding.ibBackButton.setOnClickListener{
-            findNavController().navigate(
-                ShipsListFragmentDirections.actionShipListPageToStartingPage()
-            )
+            findNavController().popBackStack()
         }
 
         binding.ibSearch.setOnClickListener {
@@ -72,7 +70,6 @@ class ShipsListFragment: ViewModelFragment() {
         viewModel.shipListData.observe(viewLifecycleOwner){ uiState ->
             when(uiState){
                 is UIState.Loading ->{
-                    binding.rvShipList.adapter = shipListItemAdapter
                     viewModel.getShips()
                     Log.d(TAG, "setupShipList: start getting ships")
                 }
@@ -82,6 +79,7 @@ class ShipsListFragment: ViewModelFragment() {
                     Log.d(TAG, "setupShipList: Start Posting Ships")
                     binding.apply {
                         shipListItemAdapter.setShipList(uiState.response)
+                        binding.rvShipList.adapter = shipListItemAdapter
                     }
                 }
             }

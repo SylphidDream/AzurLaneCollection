@@ -8,6 +8,7 @@
     android:layout_margin="8dp"
     >
     <ImageView
+        android:id="@+id/iv_skin"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/laffey_base_skin"
