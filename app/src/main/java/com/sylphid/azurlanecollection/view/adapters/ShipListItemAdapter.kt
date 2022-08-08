@@ -18,7 +18,7 @@ class ShipListItemAdapter(
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setShipList(shipList: List<ShipEntity>){
-        if(list.isNotEmpty()) list.removeLast()
+        if(list.isNotEmpty()) list.clear()
         list.addAll(shipList)
         notifyDataSetChanged()
     }
@@ -45,8 +45,6 @@ class ShipListItemAdapter(
                     root.setOnClickListener{
                         openDetails(ship)
                     }
-                }?:{
-                    Log.e(TAG, "onBind: ${ship.id}", )
                 }
             }
         }

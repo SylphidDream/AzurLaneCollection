@@ -8,7 +8,6 @@
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:backgroundTint="@color/transparent_black"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +33,8 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/iv_skill_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
