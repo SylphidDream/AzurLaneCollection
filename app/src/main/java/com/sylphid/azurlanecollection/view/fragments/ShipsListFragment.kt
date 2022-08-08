@@ -36,6 +36,10 @@ class ShipsListFragment: ViewModelFragment() {
     }
 
     fun setupUI(){
+
+        //Hide unimplemented feature
+        binding.ibSearch.visibility = View.GONE
+
         binding.ibBackButton.setOnClickListener{
             findNavController().popBackStack()
         }
