@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
@@ -73,13 +73,13 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
 
-    //hilt
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+    // Hilt
+    implementation "com.google.dagger:hilt-android:2.42"
+    kapt "com.google.dagger:hilt-compiler:2.42"
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
-    //firestore (NoSQL DB)
+    //Firestore (NoSQL DB)
     implementation 'com.google.firebase:firebase-firestore-ktx'
 }
 

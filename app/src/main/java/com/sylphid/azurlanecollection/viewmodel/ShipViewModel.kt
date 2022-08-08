@@ -8,14 +8,17 @@ import androidx.lifecycle.viewModelScope
 import com.sylphid.azurlanecollection.api.ShipEntity
 import com.sylphid.azurlanecollection.api.ShipsRepository
 import com.sylphid.azurlanecollection.model.UIState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
+import javax.inject.Inject
 
 const val TAG = "ShipViewModel"
-class ShipViewModel(
+@HiltViewModel
+class ShipViewModel @Inject constructor(
     private val repository: ShipsRepository,
     private val dispatcher: CoroutineDispatcher
 ): ViewModel() {
