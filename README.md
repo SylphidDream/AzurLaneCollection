@@ -1,3 +1,8 @@
+# Project Status
+
+This project was originally developed as a training capstone and is not actively maintained.
+It remains available as an example of my work with Kotlin, Android, and API integration.
+
 # AzurLaneCollection
 An application for Android that allows users to view all ships as well as keep track of their own collection in-game.
 
